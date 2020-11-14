@@ -9,7 +9,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/nyws/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -110,7 +110,26 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls='ls -lh --color'
+alias ssh-aws='ssh -i ~/.ssh/ubuntu-aws.pem ubuntu@aws'
+alias ssh-azure='ssh -i ~/.ssh/azure_rsa.pem -p 2222 azure'
+
+#GO INGO
+export GOBIN=$HOME/go/bin
+
+## SHODAN
+SHODAN_API_KEY="sgZZK4k8JPEbv43dQGbWkKOevyTHMNKb"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 setopt +o nomatch
+export PATH=$HOME/.gem/ruby/2.7.0/bin:$PATH
+export PATH="$PATH:$HOME/.axiom/interact"
+export PATH="$PATH:$GOBIN"
+source $HOME/.axiom/functions/autocomplete.zsh
+compdef _axiom-ssh axiom-rm
+compdef _axiom-ssh axiom-ssh
+compdef _axiom-ssh axiom-select
+compdef _axiom-ssh axiom-backup
+compdef _axiom-ssh axiom-vpn
+compdef _axiom-restore axiom-restore
+compdef _axiom-deploy axiom-deploy
