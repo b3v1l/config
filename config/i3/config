@@ -1,67 +1,40 @@
-# i3 config file (v4) for Regolith Desktop Environment
+#i3 config file
 #
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
-#exec_always --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 # This defines which key super maps to on your keyboard.  
 # Alt key is Mod1, and Windows key is Mod4
 set $mod Mod4
 set $alt Mod1
 
-# i3xrocks config file
-#;set $i3xrocks_config /etc/regolith/i3xrocks/config
 
-# compton config file
-#set $compton_config /etc/regolith/compton/config
-#set $compton_config $HOME/.config/compton/compton.conf
 # path to terminal. Override this to specify a custom terminal.
 #set $terminal_path /usr/bin/st
-
-#set $terminal_path /usr/bin/gnome-terminal.real
-#set $terminal_path /usr/local/bin/st
 set $terminal_path /usr/bin/konsole
-# Color values are defined in ~/.Xresources-regolith
-# These are the labels which define each i3 workspace.
-
 
 # kill Plasma Desktop
 
 exec --no-startup-id wmctrl -c Plasma
-
 for_window [title="Desktop — Plasma"] kill; floating enable
-
 
 
 # fix Plasma fly-outs
 
 for_window [class="plasmashell"] floating enable
-
 for_window [class="Plasma"] floating enable
-
 for_window [title="plasma-desktop"] floating enable
-
 for_window [class="krunner"] floating enable
-
 for_window [class="Kmix"] floating enable
-
 for_window [class="Klipper"] floating enable
-
 for_window [class="Plasmoidviewer"] floating enable
-
 for_window [class="yakuake"] floating enable
-
 
 
 # fix notification appearing on the second monitor
 
 assign [class="plasmashell" window_type="notification"] output primary
 
-
-
 # fix notification focusing
 
 no_focus [class="plasmashell"] 
-
-
 
 # >>> Window Rules <<<
 
@@ -73,7 +46,6 @@ for_window [window_role="Preferences"] floating enable
 for_window [window_role="About"] floating enable 
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
-
 
 for_window [class="(?i)mplayer"] floating enable
 
@@ -103,7 +75,6 @@ set $ws10 10
 #Redlight for night mode
 
 exec --no-startup-id redshift -c ~/.config/redshift/redshift.conf
-#exec_always --no-startup-id killall trayer
 #exec_always --no-startup-id /usr/bin/klipper 
 # exec_always --no-startup-id /usr/bin/nm--applet 
 
@@ -121,23 +92,9 @@ bindsym $mod+Shift+Return exec /usr/bin/brave
 # kill focused window
 bindsym $mod+Shift+q kill
 
+#### Rofi stuff #####
+
 set_from_resource $rofiTheme rofi.theme "$HOME/.config/rofi/themes/onedark.rasi"
-#set_from_resource $rofiTheme rofi.theme "$HOME/import/regolith-theme.rasi"
-
-## Try to kill Plasma
-#
-## Run Compton for composition
-## exec --no-startup-id compton -b --config ~/.config/compton.conf
-#
-## Run Dunst (notify)
-## exec --no-startup-id dunst -conf ~/.config/dunstrc
-#
-## Run Nitrogen for wallpaper
-## exec --no-startup-id "sh -c 'sleep 5; exec nitrogen --restore'"
-
-#test
-#exec --no-startup-id /usr/bin/xsetroot -solid "#7f8c8d"
-
 
 
 # rofi app and window launchers
@@ -442,7 +399,8 @@ exec --no-startup-id compton --config ~/.config/compton/compton.conf
 exec_always --no-startup-id xset -b 
 exec_always --no-startup-id /usr/bin/dropbox 
 #exec_always --no-startup-id "/usr/bin/feh --bg-max $HOME/Pictures/Minimal-3840x2160.jpg" 
-exec_always --no-startup-id "/usr/bin/feh --bg-scale $HOME/Pictures/arch1.png"
+#exec_always --no-startup-id "/usr/bin/feh --bg-scale $HOME/Pictures/wall_style1_logo.png"
+exec_always --no-startup-id "/usr/bin/feh --bg-scale $HOME/Pictures/arch2.png"
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Launch the shortcut Conky window on first login
 # Hide the mouse pointer if unused for a duration
